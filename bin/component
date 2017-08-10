@@ -9,15 +9,20 @@ component = ARGV[0]
 component_js = "#{component}.js"
 index_js = "index.js"
 
-# Changes directory to src/components
+# Changes directory to 'src/components/' or 'src/'
 root = Dir.pwd
-unless Dir.exist?("#{root}/src/components")
-	puts "Directory src/components doesn't exist."
+unless Dir.exist?("#{root}/src")
+	puts "Directory src doesn't exist."
 	exit(1)
 end
-Dir.chdir("#{root}/src/components")
 
-# Creates directory
+destination = "/src/components"
+if !Dir.exist?("#{root}#{destination}")
+  destination = "/src"
+end
+Dir.chdir("#{root}#{destination}")
+
+# Creates director
 Dir.mkdir(component)
 Dir.chdir(component)
 
@@ -40,4 +45,4 @@ open(component_js, 'a') do |f|
 	f << export_default_statement
 end
 
-puts "#{component_js} and #{index_js} created succesfully at /src/components!"
+puts "#{component_js} and #{index_js} created succesfully at #{destination}!"
