@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-unless not ARGV.empty?
+unless !ARGV.empty?
   puts 'No component name was given.'
   exit(1)
 end
@@ -17,7 +17,7 @@ unless Dir.exist?("#{root}/src")
 end
 
 destination = "/src/components"
-if !Dir.exist?("#{root}#{destination}")
+unless Dir.exist?("#{root}#{destination}")
   destination = "/src"
 end
 Dir.chdir("#{root}#{destination}")
@@ -32,17 +32,17 @@ system("touch #{index_js}")
 
 # index.js
 contents = "export { default } from './#{component}';"
-open(index_js, 'a') do |f|
-  f << contents
+open(index_js, 'a') do |file|
+  file << contents
 end
 
 # Component.js
 import_react_statement = "import React from 'react';"
 export_default_statement = "export default;"
-open(component_js, 'a') do |f|
-  f << import_react_statement
-  f << "\n"
-  f << export_default_statement
+open(component_js, 'a') do |file|
+  file << import_react_statement
+  file << "\n"
+  file << export_default_statement
 end
 
 puts "#{component_js} and #{index_js} created succesfully at #{destination}!"
