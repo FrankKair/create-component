@@ -34,6 +34,7 @@ system("touch #{index_js}")
 contents = "export { default } from './#{component}';"
 open(index_js, 'a') do |f|
 	f << contents
+	f << "\n"
 end
 
 # Component.js
@@ -43,6 +44,7 @@ open(component_js, 'a') do |f|
 	f << import_react_statement
 	f << "\n"
 	f << export_default_statement
+	f << "\n"
 end
 
 puts "#{component_js} and #{index_js} created succesfully at #{destination}!"
