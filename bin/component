@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 unless !ARGV.empty?
   puts 'No component name was given.'
   exit(1)
@@ -34,6 +33,7 @@ system("touch #{index_js}")
 contents = "export { default } from './#{component}';"
 open(index_js, 'a') do |file|
   file << contents
+  file << "\n"
 end
 
 # Component.js
@@ -43,6 +43,7 @@ open(component_js, 'a') do |file|
   file << import_react_statement
   file << "\n"
   file << export_default_statement
+  file << "\n"
 end
 
 puts "#{component_js} and #{index_js} created succesfully at #{destination}!"

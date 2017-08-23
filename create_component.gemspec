@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["frankkair@gmail.com"]
 
   spec.summary       = "Simple script to create React components."
-  spec.description   = "Simple script to create React components."
+  spec.description   = "Script to create React components."
   spec.homepage      = "https://github.com/FrankKair/create-component"
   spec.license       = "MIT"
 
