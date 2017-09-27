@@ -26,3 +26,5 @@ In your project's root directory, just call:
     $ component MyComponent
 
 and _voilà_!
+
+(You can also use a `--story` flag to create a **MyComponent.storybook.js** file if you're using [Storybook](https://github.com/storybooks/storybook))
