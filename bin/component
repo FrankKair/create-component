@@ -45,5 +45,13 @@ open(component_js, 'a') do |file|
   file << export_default_statement
   file << "\n"
 end
-
 puts "#{component_js} and #{index_js} created succesfully at #{destination}!"
+
+# Component.story.js
+story_destination = "#{root}/stories"
+if ARGV[1] == '--story'
+  Dir.chdir(story_destination)
+  story_js = "#{component}.story.js"
+  system("touch #{story_js}")
+  puts "#{story_js} was created at #{story_destination}!"
+end
