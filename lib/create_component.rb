@@ -1,1 +1,1 @@
-require "create_component/version"
+require 'create_component/version'

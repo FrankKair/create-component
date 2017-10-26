@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
-unless !ARGV.empty?
+if ARGV.empty?
   puts 'No component name was given.'
   exit(1)
 end
 
 component = ARGV[0]
 component_js = "#{component}.js"
-index_js = "index.js"
+index_js = 'index.js'
 
 # Changes directory to 'src/components/' or 'src/'
 root = Dir.pwd
@@ -15,10 +15,8 @@ unless Dir.exist?("#{root}/src")
   exit(1)
 end
 
-destination = "/src/components"
-unless Dir.exist?("#{root}#{destination}")
-  destination = "/src"
-end
+destination = '/src/components'
+destination = '/src' unless Dir.exist?("#{root}#{destination}")
 Dir.chdir("#{root}#{destination}")
 
 # Creates director
@@ -38,7 +36,7 @@ end
 
 # Component.js
 import_react_statement = "import React from 'react';"
-export_default_statement = "export default;"
+export_default_statement = 'export default;'
 open(component_js, 'a') do |file|
   file << import_react_statement
   file << "\n"
